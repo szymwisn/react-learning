@@ -17,7 +17,7 @@ const YellowBackground = styled.div`
 `;
 
 export default {
-  title: 'ButtonIcon',
+  title: 'Atoms/ButtonIcon',
   component: ButtonIcon,
   decorators: [(story) => <YellowBackground>{story()}</YellowBackground>],
 };

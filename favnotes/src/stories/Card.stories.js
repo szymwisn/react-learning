@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'components/molecules/Card/Card';
 
 export default {
-  title: 'Card',
+  title: 'Molecules/Card',
   component: Card,
 };
 

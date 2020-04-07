@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem; // bring back font-size and still have 1 rem as 10px, so called "happy rems"
         font-family: "Montserrat", sans-serif;
+        padding-left: 153px;
     }
 `;
 
