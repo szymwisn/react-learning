@@ -5,6 +5,7 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier", "prettier/react"],
+  "parser": "babel-eslint",
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
@@ -19,7 +20,9 @@
   },
   "plugins": ["react"],
   "rules": {
+    "react/state-in-constructor": 0,
     "import/prefer-default-export": 0,
+    "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": [
       1,
       {

@@ -35,16 +35,14 @@ const StyledBottomIcon = styled.div`
   margin-bottom: 30px;
 `;
 
-const StyledIcons = styled.div``;
-
 const Sidebar = ({ pageType }) => (
   <StyledWrapper color={pageType}>
     <StyledLogo as={NavLink} to="/" />
-    <StyledIcons>
-      <ButtonIcon exact activeclass="active" as={NavLink} to="/" icon={penIcon} />
+    <div>
+      <ButtonIcon activeclass="active" as={NavLink} to="/notes" icon={penIcon} />
       <ButtonIcon activeclass="active" as={NavLink} to="/twitters" icon={twitterIcon} />
       <ButtonIcon activeclass="active" as={NavLink} to="/articles" icon={bulbIcon} />
-    </StyledIcons>
+    </div>
     <StyledBottomIcon>
       <ButtonIcon as={NavLink} to="/login" icon={logoutIcon} />
     </StyledBottomIcon>
@@ -52,7 +50,11 @@ const Sidebar = ({ pageType }) => (
 );
 
 Sidebar.propTypes = {
-  pageType: PropTypes.string.isRequired,
+  pageType: PropTypes.oneOf(['notes', 'articles', 'twitters']),
+};
+
+Sidebar.defaultProps = {
+  pageType: 'notes',
 };
 
 export default Sidebar;

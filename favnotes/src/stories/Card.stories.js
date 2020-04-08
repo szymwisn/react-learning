@@ -6,10 +6,10 @@ export default {
   component: Card,
 };
 
-export const White = () => <Card />;
+export const Default = () => <Card />;
 
-export const Twitter = () => <Card cardType="twitter" />;
+export const Twitter = () => <Card cardType="twitters" />;
 
-export const Article = () => <Card cardType="article" />;
+export const Article = () => <Card cardType="articles" />;
 
-export const Note = () => <Card cardType="note" />;
+export const Note = () => <Card cardType="notes" />;
