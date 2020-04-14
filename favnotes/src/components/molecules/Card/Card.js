@@ -1,7 +1,7 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { PropTypes } from 'prop-types';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Heading from 'components/atoms/Heading/Heading';
 import Button from 'components/atoms/Button/Button';
@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
   box-shadow: 0 10px 30px -10px hsla(0, 0%, 0%, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
 `;
@@ -19,7 +20,11 @@ const StyledWrapper = styled.div`
 const InnerWrapper = styled.div`
   position: relative;
   padding: 17px 30px;
-  background-color: ${({ activeColor, theme }) => theme[activeColor]};
+  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
+
+  :first-of-type {
+    z-index: 9999;
+  }
 
   ${({ flex }) =>
     flex &&
@@ -60,10 +65,11 @@ const StyledLinkButton = styled.a`
   background-position: 50%;
   position: absolute;
   right: 25px;
-  top: 25px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
-class Card extends React.Component {
+class Card extends Component {
   state = {
     redirect: false,
   };
@@ -75,9 +81,8 @@ class Card extends React.Component {
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to={`${cardType}/${id}`} />;
+      return <Redirect to={`${cardType}/details/${id}`} />;
     }
-
     return (
       <StyledWrapper onClick={this.handleCardClick}>
         <InnerWrapper activeColor={cardType}>
@@ -98,7 +103,7 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   cardType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
   title: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,

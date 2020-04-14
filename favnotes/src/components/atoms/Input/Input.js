@@ -20,7 +20,7 @@ const Input = styled.input`
     css`
       padding: 10px 20px 10px 40px;
       font-size: ${({ theme }) => theme.fontSize.xs};
-      background-image: url(${() => magnifierIcon});
+      background-image: url(${magnifierIcon});
       background-size: 15px;
       background-position: 15px 50%;
       background-repeat: no-repeat;

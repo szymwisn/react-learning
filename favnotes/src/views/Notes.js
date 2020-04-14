@@ -4,44 +4,41 @@ import Card from 'components/molecules/Card/Card';
 
 const notes = [
   {
-    title: 'a',
-    content: 'b',
-    created: '10 days',
+    id: 1,
+    title: 'Wake me up when Vue ends',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
   },
   {
-    title: 'b',
-    content: 'b',
-    created: '10 days',
+    id: 2,
+    title: 'Como es An Gular?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
   },
   {
-    title: 'c',
-    content: 'b',
-    created: '10 days',
+    id: 3,
+    title: 'Du bist Reactish',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '5 days',
   },
   {
-    title: 'd',
-    content: 'b',
-    created: '10 days',
-  },
-  {
-    title: 'e',
-    content: 'b',
+    id: 4,
+    title: 'Reactuj się kto moze!',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
     created: '10 days',
   },
 ];
 
 const Notes = () => (
   <GridTemplate pageType="notes">
-    {notes.map((item) => (
-      <Card
-        id={item.title}
-        cardType="notes"
-        title={item.title}
-        content={item.content}
-        created={item.created}
-        key={item.title}
-      />
+    {notes.map(({ title, content, created, id }) => (
+      <Card id={id} cardType="notes" title={title} content={content} created={created} key={id} />
     ))}
   </GridTemplate>
 );
+
 export default Notes;
