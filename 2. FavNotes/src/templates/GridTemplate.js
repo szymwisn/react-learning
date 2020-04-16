@@ -87,7 +87,7 @@ class GridTemplate extends React.Component {
             color={pageContext}
             icon={plusIcon}
           />
-          {itemBarVisible && <NewItemBar />}
+          {itemBarVisible && <NewItemBar handleClose={this.handleNewItemBarToggle} />}
         </StyledWrapper>
       </UserPageTemplate>
     );
