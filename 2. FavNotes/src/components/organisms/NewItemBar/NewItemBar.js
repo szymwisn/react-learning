@@ -66,7 +66,7 @@ const NewItemBar = ({ pageContext, addItem, handleClose }) => (
               name="twitterName"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.email}
+              value={values.password}
             />
           )}
           {pageContext === 'articles' && (
@@ -90,7 +90,7 @@ const NewItemBar = ({ pageContext, addItem, handleClose }) => (
           />
           <Button type="submit" color={pageContext} disabled={isSubmitting}>
             Add {pageContext}
-          </Button>{' '}
+          </Button>
         </StyledForm>
       )}
     </Formik>
